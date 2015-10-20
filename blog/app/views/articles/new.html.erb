@@ -1,8 +1,8 @@
 <h1> New Article </h1>
 
-<%= form_for :article do |f| %> <%# what is :article and |f| %>
+<%= form_for :article, url: articles_path do |f| %> <%# what is :article and |f| %>
  	<p>
-		<%= f.label :title %><br>
+		<%= f.label :title %><br> <%# :title is what will show up as the title for the text field  %>
 		<%= f.text_field :title %>
 	</p>
 

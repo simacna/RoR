@@ -1,0 +1,13 @@
+<h1> Listing articles </h1>
+
+<table>
+	<tr>
+		<th> Title </th>
+		<th> Text </th>
+	</tr>
+
+	<% @articles.each do |article| %> <!-- Why is this seen in the locaholhost:3000/articles and not /articles/index -->
+		<td><%= article.title %></td>
+		<td><%= article.text %></td>
+	<% end %>
+</table>

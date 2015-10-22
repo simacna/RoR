@@ -174,7 +174,7 @@ class Dog
 end
 
 rover = Dog.new
-rover.make_sound
+# rover.make_sound
 
 class Scientist
 	include Human
@@ -187,14 +187,35 @@ class Scientist
 	end
 end
 
-einstein = Scientist.new
-einstein.name = "Albert"
-puts einstein.name #einstein
+# einstein = Scientist.new
+# einstein.name = "Albert"
+# puts einstein.name #einstein
 
-einstein.run
-puts einstein.name + " says " + einstein.act_smart
+# einstein.run
+# puts einstein.name + " says " + einstein.act_smart
 
 
+class Bird
+	def tweet(bird_type)
+		bird_type.tweet
+	end
+end
+
+class Cardinal < Bird
+	def tweet
+		puts "Tweet tweet"
+	end
+end
+
+class Parrot < Bird
+	def tweet
+		puts "Squak"
+	end
+end
+
+# generic_bird = Bird.new
+# generic_bird.tweet(Cardinal.new)
+# generic_bird.tweet(Parrot.new)
 
 
 

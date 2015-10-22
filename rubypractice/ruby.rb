@@ -103,31 +103,31 @@ full_name = "#{first_name} #{middle_name} #{last_name}"
 # name_array = full_name.split(/ /)
 # puts name_array
 
-class Animal
-	def initialize #initializer, put default values
-		puts "Creating a new animal"
-	end
+# class Animal
+# 	def initialize #initializer, put default values
+# 		puts "Creating a new animal"
+# 	end
 
-	def set_name(new_name)
-		@name = new_name
-	end
+# 	def set_name(new_name)
+# 		@name = new_name
+# 	end
 
-	def get_name
-		@name
-	end
+# 	def get_name
+# 		@name
+# 	end
 
-	def name
-		@name
-	end
+# 	def name
+# 		@name
+# 	end
 
-	def name=(new_name)
-		if new_name.is_a?(Numeric)
-			puts "Name can't be a number"
-		else
-			@name = new_name
-		end
-	end
-end
+# 	def name=(new_name)
+# 		if new_name.is_a?(Numeric)
+# 			puts "Name can't be a number"
+# 		else
+# 			@name = new_name
+# 		end
+# 	end
+# end
 
 # cat =  Animal.new
 # cat.set_name("SINA")
@@ -139,8 +139,8 @@ end
 
 
 class Dog
-	attr_reader :name, :height, :weight #create all getter functins
-	attr_writer :name, :height, :weight #create all setter functions
+	# attr_reader :name, :height, :weight #create all getter functins
+	# attr_writer :name, :height, :weight #create all setter functions
 
 	attr_accessor :name, :height, :weight #this sets both getter and setters
 
@@ -149,11 +149,53 @@ class Dog
 	end
 end
 
+class GermanShepard < Dog #inheriting from Dog class
+	def bark
+		return "Loud bark"
+	end
+end
+
+# max = GermanShepard.new
+# max.name =  "Max"
+
+# printf "%s goes %s \n", max.name, max.bark()
+
+require_relative "human"
+require_relative "smart"
+
+module Animal
+	def make_sound
+		puts "Grrr"
+	end
+end
+
+class Dog
+	include Animal
+end
+
 rover = Dog.new
+rover.make_sound
 
-rover.name = "Rover"
+class Scientist
+	include Human
+	prepend Smart #if you want functions defined in the module
+	#to override a function with same name defined in this class, we use
+	#prepend
 
-puts rover.name
+	def act_smart
+		return "DIFF SMART"
+	end
+end
+
+einstein = Scientist.new
+einstein.name = "Albert"
+puts einstein.name #einstein
+
+einstein.run
+puts einstein.name + " says " + einstein.act_smart
+
+
+
 
 
 

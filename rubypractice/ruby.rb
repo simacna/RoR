@@ -244,13 +244,51 @@ superheroines = Hash["Lisa Morel", "Aquagirl", "Betty Kane", "Batgirl"]
 
 superheroes.update(superheroines) #update will delete duplicate/merge won't
 
-superheroes.each do |key, value|
-	puts key + " : " + value
+# superheroes.each do |key, value|
+# 	puts key + " : " + value
+# end
+
+class Menu
+	include Enumerable
+
+	def each
+		yield "pizza"
+		yield "spaghetti"
+		yield "water"
+	end
 end
 
+menu_options = Menu.new
+# menu_options.each do |item|
+# 	puts "would you like: #{item}"
+# end
 
+# p menu_options.find{|item| item="pizza"}
 
+# p menu_options.select{|item| item.size <= 5}
 
+# p menu_options.first
+
+# p menu_options.take(2)
+
+# p menu_options.drop(2)
+
+# p menu_options.min
+
+# p menu_options.sort
+
+file = File.new("authors.out", "w")
+file.puts "William Shakespeare"
+file.puts "William Shakespeare"
+file.puts "William Shakespeare"
+file.close
+
+# puts File.read("authors.out")
+
+file = File.new("authors.out", "a")
+file.puts "Dan Steel"
+file.close
+# puts File.read("authors.out")
 
 
 

@@ -216,7 +216,37 @@ end
 # generic_bird = Bird.new
 # generic_bird.tweet(Cardinal.new)
 # generic_bird.tweet(Parrot.new)
+# puts :derek
+# puts :derek.to_s
+# puts :derek.class
+# puts :derek.object_id
 
+array_1 = Array.new
+array_2 = Array.new(5) #creates 5 spaces
+array_3 = Array.new(5, "empty")
+array_4 = [1, "two", 3, 5.5]
+
+# print "array_1", array_1
+# print array_2
+# print array_3
+# print array_4
+
+# puts array_4[0,2].join(", ")
+# puts array_4.values_at(0,1,3).join(", ")
+
+num_hash = {"PI" => 3.15,
+				"Golden" => 1.618,
+				"e" => 2.718}
+
+# puts num_hash["PI"]
+superheroes = Hash["Clark Kent", "Superman", "Bruce Wayne", "Batman"]
+superheroines = Hash["Lisa Morel", "Aquagirl", "Betty Kane", "Batgirl"]
+
+superheroes.update(superheroines) #update will delete duplicate/merge won't
+
+superheroes.each do |key, value|
+	puts key + " : " + value
+end
 
 
 

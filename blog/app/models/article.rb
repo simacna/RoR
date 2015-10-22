@@ -5,3 +5,4 @@ class Article < ActiveRecord::Base #activerecord provides lots of functionality,
 					  length: { minimum: 5}
 
 end
+ 

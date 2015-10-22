@@ -12,6 +12,10 @@ class ArticlesController < ApplicationController
 		@article = Article.new
 	end
 
+	def edit
+		@article = Article.find(params[:id])
+	end
+
 	def create
 		# render plain: params[:article].inspect #key is plain: with value params[:article].inspect
 		# @article = Article.new(params.require(:article).permit(:title, :text)) we're creating an action since the code

@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
+		@article = Article.new
 	end
 
 	def create
@@ -17,8 +18,13 @@ class ArticlesController < ApplicationController
 		#will be used throughout the controller
 		@article = Article.new(article_params)
 
-		@article.save
-		redirect_to @article #where is the redirect @article to?
+		if @article.save
+			redirect_to @article #where is the redirect @article to?
+		else
+			render 'new' #will this look under views > articles > new.html.erb
+			#render is used instead of redirect_to since render will is done within the same request
+			#whereas redirect_to will tell the browser to issue another request
+		end
 	end
 
 	private

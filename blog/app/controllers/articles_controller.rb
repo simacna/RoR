@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
 		else
 			render 'new' #will this look under views > articles > new.html.erb
 			#render is used instead of redirect_to since render will is done within the same request
-			#whereas redirect_to will tell the browser to issue another request
+			#whereas redirect_to will tell the browser to issue another request.
 		end
 	end
 

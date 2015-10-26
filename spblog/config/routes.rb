@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :articles
+  resources :articles do
+    resources :comments #nest all of our comments inside articles
+  end 
   resources :users
   root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.

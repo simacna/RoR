@@ -5,3 +5,9 @@
 <% 11.times do |i| %>
 	<%= i %>
 <% end %>
+
+<% if(params.has_key?(:id) &&
+	  params.has_key?(:random)) %> <br/>
+	  <%= "ID: #{params[:id]}"%><br/>
+	  <%= "Random: #{params[:random]}" %>
+<% end %> 

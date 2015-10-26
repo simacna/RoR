@@ -1,0 +1,10 @@
+<p> SAMPLE </p>
+
+<%= "Message from controller:
+	#{@controller_message}" %> <!-- One thing we can't do is send data from view to controller but can do other way around -->
+<br/>
+<%= link_to("Go to Index",
+	 {:controller => 'welcome', #Since sample action is in the same controller, we
+	# 	don't need the :controller =>welcome but I'll still keep it
+	:action=> 'index',
+	:id => 5, :random => "Sina"}) %> <!-- Say we wanted to pass info to the url -->

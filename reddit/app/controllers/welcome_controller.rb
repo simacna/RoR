@@ -1,4 +1,9 @@
 class WelcomeController < ApplicationController
+
+  # GET -> index
+  # POST -> create
+  # PATCH/PUT -> update
+  # DELETE -> delete	
   def index
   	if(params.has_key?(:id) &&
   		params.has_key?(:random)) 

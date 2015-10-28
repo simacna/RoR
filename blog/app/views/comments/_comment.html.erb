@@ -7,3 +7,11 @@
 	<strong> Comment: </strong>
 	<%= comment.body %>
 </p>
+
+<p>
+
+<!-- What are the parameters [comment.article, comment]. Also, why comment.article?  -->
+	<%= link_to 'Destroy Comment', [comment.article, comment],
+							   method: :delete,
+							   data: {confirm: 'Are you sure'} %>
+</p>

@@ -1,0 +1,14 @@
+<h2> Add a comment: </h2>
+<%= form_for([@article, @article.comments.build]) do |f| %> <!-- are we allowed to say @article.comments since they've been associated in the model? Assuming build just adds the content to the database? -->
+	<p>
+		<%= f.label :commenter %><br/>
+		<%= f.text_field :commenter %> <!-- What is the significance of the f.label/f.text_field having the same :commenter name? is it for clarity or is there an actual association  -->
+	</p>
+	<p>
+		<%= f.label :body %><br/>
+		<%= f.text_area :body %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

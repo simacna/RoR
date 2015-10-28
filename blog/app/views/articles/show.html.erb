@@ -8,6 +8,20 @@
 	<%= @article.text %>
 </p>
 
+<h2> Comments </h2>
+<!-- is @article the article model and @article.comments possible because of the association has_many? -->
+
+<% @article.comments.each do |comment| %> 
+	<p>
+		<strong> Commenter: </strong>
+		<%= comment.commenter %> <!-- comment.commenter is possible since there's a table comments with column commenter -->
+	</p>
+	<p>
+		<strong>Comment: </strong>
+		<%= comment.body %>
+	</p>
+<% end %> 
+
 <h2> Add a comment: </h2>
 <%= form_for([@article, @article.comments.build]) do |f| %> <!-- are we allowed to say @article.comments since they've been associated in the model? Assuming build just adds the content to the database? -->
 	<p>

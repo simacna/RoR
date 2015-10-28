@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
-		@article = Article.find(params[:id])
+		@article = Article.find(params[:id]) #This action needs explaining
 
 		if @article.update(article_params)
 			redirect_to @article

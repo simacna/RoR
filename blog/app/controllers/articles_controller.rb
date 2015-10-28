@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+	# does the :before index indicate action where as infront it'd be a hash?
+	http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show] 
+
 
 	def index
 		@articles = Article.all

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> <%= yield(:title) %> </title>
+ <%# <title> <%= yield(:title)  </title> Im replacing this line with the line below after adding a method to the application_helper.rb file for checking the title%>
+ <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>

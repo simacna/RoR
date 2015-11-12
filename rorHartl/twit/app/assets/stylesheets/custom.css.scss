@@ -15,21 +15,12 @@ textarea {
   resize: vertical;
 }
 
-/*.center {
+.center {
   text-align: center;
 }
 
 .center h1 {
   margin-bottom: 10px;
-}*/
-
-/* below code for center and center h1 is the same as above */
-
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
 }
 
 /* typography */
@@ -61,7 +52,7 @@ p {
 
 /* header */
 
-/*#logo {
+#logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
@@ -75,25 +66,7 @@ p {
 #logo:hover {
   color: #ff524d;
   text-decoration: none;
-}*/
-
-/* below logo/logo:hover is the same as above */
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  &:hover{
-    color: #ff524d;
-    text-decoration: none;
-  }
 }
-
 
 /* footer */
 
@@ -102,25 +75,30 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
-  a {
-    color: #555;
-    &:hover{
-      color: #ff524d;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float:right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
-  }
-
 }
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #ff524d;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
 
 
 

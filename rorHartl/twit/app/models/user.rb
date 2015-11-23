@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-  validates(:name, presence: true) #same as validates :name, presence: true
+  validates(:name, presence: true, length: {maximum: 50}) #same as validates :name, presence: true
+  validates(:email, presence: true, length: {maximum: 255})
 end

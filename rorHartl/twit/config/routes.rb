@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
 
-  get 'users/new'
+  # get 'users/new' -- took this out since its included in the resources :users below
 
   # root 'static_pages#home' -- why is root with # and get with /
   # get 'static_pages/help'
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'about' =>   'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'signup' =>  'users#new'
+
+  resources :users
 
   
   

@@ -4,16 +4,16 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   
   test "submission link" do 
 
-  get signup_path
+    get signup_path
 
-  assert_no_difference 'User.count' do
+    assert_no_difference 'User.count' do
     #to test form submission, we need to issue a POST request to users_path
-    post users_path, user: { name: "",
+      post users_path, user: { name: "",
                             email: "user@invalid",
                             password: "foo",
                             password_confirmation: "bar" }
     end
-  assert_template 'users/new'
+    assert_template 'users/new'
   end
 
   test "valid signup information" do
@@ -26,4 +26,5 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                             password_confirmation: 'password'}
       assert_template 'users/show' #what is users/show -- also difference users/show vs users#show
   end
+end
 end

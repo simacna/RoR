@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
     #what does authenticate do?
     if user && user.authenticate(params[:session][:password])
       #Log the user in and redirect to the user's show page
+      log_in user
+      redirect_to user #rails automatically converts this to user_url(user)
     else
       #create an error message 
       #at first i'd type flash[:erro] and the red background did not show up

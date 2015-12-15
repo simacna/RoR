@@ -1,6 +1,25 @@
 require 'test_helper'
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
+
+  def setup
+    #users corresponds to users.yml under test/fixtures
+    @user = users(:sina)
+  end
+
+  test 'login with valid information' do
+    get login_path
+    #password field below has to be 'password' and not the password set for user
+    post login_path, session: {email: @user.email, password: 'password'} 
+    assert_redirected_to @user
+    follow_redirect!
+    assert_template 'users/show'
+    assert_select "a[href=?]", login_path, count: 0
+    assert_select "a[href=?]", logout_path
+    assert_select "a[href=?]", user_path(@user)
+  end
+
+
   test 'login with invalid information' do 
     get login_path
     assert_template 'sessions/new'
@@ -10,4 +29,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get root_path
     assert flash.empty?
   end
+
+  
 end

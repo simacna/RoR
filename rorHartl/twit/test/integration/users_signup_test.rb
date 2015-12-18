@@ -25,6 +25,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                             password: 'password',
                                             password_confirmation: 'password'}
       assert_template 'users/show' #what is users/show -- also difference users/show vs users#show
+      assert is_logged_in?
   end
 end
 end

@@ -18,7 +18,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
-    
+  def destroy 
+    #how does destroy action know what log_out is?
+    log_out
+    redirect_to root_url
   end
 end

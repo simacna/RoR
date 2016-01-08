@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_accessor :remember_token 
+
   before_save { self.email = email.downcase }
   #where does :name get passed from to the validates below? from the html name="name" form?
   validates(:name, presence: true, length: {maximum: 50}) #same as validates :name, presence: true
@@ -15,5 +17,14 @@ class User < ActiveRecord::Base
                                                   BCrypt::Engine.cost
 
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def remember
+    self.remember_token = ;
+    update_attribute(:remember_digest, )
   end
 end

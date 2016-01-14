@@ -9,10 +9,13 @@ module SessionsHelper
 
   #Remembers a user in a persistent session
   def remember(user)
-    user.remember
+    user.remember #why is
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
   end
+
+  #Returns the user corresponding to the remember token cookie
+
 
   #Logs out the current user
   def log_out #we'll add the method to the sessions helper module
@@ -22,8 +25,19 @@ module SessionsHelper
 
   #Returns the current logged-in user (if any)
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
-  end
+    if (user_id = session[:user_id])
+      @current_user ||= User.find_by(id: user_id)
+    elsif (user_id = cookies.signed[:user_id])
+      user = User.find_by(id: user_id)
+      #below authenticated method is used from user.rb model
+      #what are the rules for passing methods from different
+      #directories around?
+      if user && user.authenticated?(cookies[:remember_token])
+        log_in user
+        @current_user = user
+      end
+    end
+  end 
 
   #Returns true if current_user is logged in, false otherwise
   def logged_in?

@@ -65,6 +65,11 @@ class UserTest < ActiveSupport::TestCase
     #assert_not @user.valid?
     assert @user.valid?
   end
+
+  test "authenticated? should return false for a user with a nil digest" do
+    assert_not @user.authenticated?('') #token left blank since error
+    #occurs before it ever gets used
+  end
 end
 
 

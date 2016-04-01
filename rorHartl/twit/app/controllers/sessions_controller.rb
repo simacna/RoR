@@ -21,7 +21,8 @@ class SessionsController < ApplicationController
 
   def destroy 
     #how does destroy action know what log_out is?
-    log_out
+    #to answer above Q, log_out is a method in the sessions_helper.rb
+    log_out if logged_in? #logged_in? is a method defined in sessions_helper
     redirect_to root_url
   end
 end

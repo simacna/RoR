@@ -26,6 +26,7 @@ module SessionsHelper
 
   #Logs out the current user
   def log_out #we'll add the method to the sessions helper module
+    forget(current_user)
     session.delete(:user_id)
     @current_user = nil
   end

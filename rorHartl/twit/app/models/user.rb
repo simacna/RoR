@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  #attr_accessor is the reader/writer for assigning/retrieving :remeber_token that can be used
+  #in different parts of the code
+  
   attr_accessor :remember_token 
 
   before_save { self.email = email.downcase }
@@ -35,6 +38,7 @@ class User < ActiveRecord::Base
 
   #Retruns true if the given token matches the digest
   def authenticated?(remember_token)
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 end

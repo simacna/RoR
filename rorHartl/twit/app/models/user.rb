@@ -38,7 +38,14 @@ class User < ActiveRecord::Base
 
   #Retruns true if the given token matches the digest
   def authenticated?(remember_token)
-    return false if remember_digest.nil?
+    #return keyword to return immediately if the remember digest
+    #is nil, which is a common way to emphasize that the rest 
+    #of the method gets ignored. Equivalent to:
+    # if remember_digest.nil?
+      #false
+    # else
+      BCrypt..
+    # return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 end

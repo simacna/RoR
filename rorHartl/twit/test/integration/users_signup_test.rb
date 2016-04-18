@@ -26,6 +26,16 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                             password_confirmation: 'password'}
       assert_template 'users/show' #what is users/show -- also difference users/show vs users#show
       assert is_logged_in?
+    end
   end
-end
+
+  test "login with remembering" do
+    login_in_as(@user, remember_me: 1)
+    assert_not_nil cookies['remember_token']
+  end
+
+  test "login without remembering" do
+    login_in_as(@user, remember_me: '0')
+    assert_nil cookies['remember_token']
+  end
 end
